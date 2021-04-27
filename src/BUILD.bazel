@@ -1,0 +1,32 @@
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary", "nodejs_test")  
+  
+nodejs_binary(  
+    name = "jsbuild",  
+    data = [  
+        ":srcs",  
+        "//resources:json_resources",  
+    ],  
+    entry_point = "jsbuild/src/index.js",  
+    node_modules = "@node_modules",  
+    install_source_map_support = False,  
+)  
+  
+filegroup(  
+    name = "srcs",  
+    srcs = glob(  
+        [  
+            "*.js",  
+        ],  
+    ),  
+)  
+  
+nodejs_test(  
+    name = "jsbuildTest",  
+    data = [  
+        ":srcs",  
+        "//resources:json_resources",  
+    ],  
+    entry_point = "jsbuild/src/test.js",  
+    node_modules = "@node_modules",  
+    install_source_map_support = False,  
+)  
