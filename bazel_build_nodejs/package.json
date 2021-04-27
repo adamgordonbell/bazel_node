@@ -1,0 +1,17 @@
+{
+    "name": "bazel_build_nodejs",
+    "version": "0.1.0",
+    "private": true,
+    "devDependencies": {
+        "@babel/cli": "^7.13.16",
+        "@babel/core": "^7.13.16",
+        "@babel/preset-env": "^7.13.15",
+        "@bazel/bazelisk": "latest",
+        "@bazel/buildifier": "latest",
+        "@bazel/ibazel": "latest"
+    },
+    "scripts": {
+        "build": "bazel build //...",
+        "test": "bazel test //..."
+    }
+}
